@@ -1,0 +1,35 @@
+id: create-app
+learningObjectives:
+  - Show how to create and configure a new application in Argo CD.
+hints:
+  - If you get stuck, [Creating
+    Apps](https://argo-cd.readthedocs.io/en/stable/user-guide/application_auto_sync/)
+    has screenshots.
+  - The 'Path' must match a folder in your repo with Kubernetes YAML files.
+startFlow:
+  do:
+    - actionId: bot_message
+      params:
+        person: lucca
+        messages:
+          - text: Let's create your first Argo CD application!
+          - text: "In the UI, click 'New App'. Fill in the details:"
+          - text: "- **Application Name**: anything you like (e.g., 'my-first-app')"
+          - text: "- **Project**: default"
+          - text: "- **Repository URL**: the repo you added earlier"
+          - text: "- **Revision**: HEAD (or a specific branch/tag)"
+          - text: "- **Path**: the folder in the repo with your app's manifests (e.g.,
+              'guestbook')"
+          - text: "- **Cluster URL**: https://kubernetes.default.svc (for your current
+              cluster)"
+          - text: "- **Namespace**: where you want the app deployed (e.g., 'default')"
+          - text: Click 'Create' and watch Argo CD work its magic.
+          - text: Continue when your app appears in the dashboard.
+    - actionId: ready_message
+      params:
+        person: lucca
+trigger:
+  type: user_ready_response
+  flowNode:
+    do:
+      - actionId: finish_step
