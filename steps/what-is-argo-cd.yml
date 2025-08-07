@@ -1,0 +1,31 @@
+id: what-is-argo-cd
+learningObjectives:
+  - Explain what Argo CD is and why it's useful.
+hints:
+  - "More on Argo CD: [Official
+    Docs](https://argo-cd.readthedocs.io/en/stable/)."
+  - Think of Argo CD as your Kubernetes autopilot.
+startFlow:
+  do:
+    - actionId: bot_message
+      params:
+        person: lucca
+        messages:
+          - text: "Let's start with the basics: Argo CD is a declarative, GitOps continuous
+              delivery tool for Kubernetes."
+          - text: It watches your Git repositories for changes and automatically syncs your
+              Kubernetes cluster to match what's in Git.
+          - text: This means your cluster's state is always in sync with your code--no more
+              'it works on my machine' excuses.
+          - text: Argo CD provides a slick web UI, CLI, and even an API for managing your
+              deployments.
+          - text: Continue when you're ready to see how Argo CD fits into the GitOps
+              workflow.
+    - actionId: ready_message
+      params:
+        person: lucca
+trigger:
+  type: user_ready_response
+  flowNode:
+    do:
+      - actionId: finish_step
