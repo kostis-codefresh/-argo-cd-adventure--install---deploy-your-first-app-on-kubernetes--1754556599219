@@ -1,11 +1,13 @@
 id: argo-cd-install-deploy
-title: "Argo CD Adventure: Install & Deploy Your First App on Kubernetes"
-subtitle: Learn to install Argo CD on Kubernetes and deploy your first
-  application with GitOps magic.
-description: Welcome to your Argo CD Adventure! In this quest, you'll learn how
-  to install Argo CD on a Kubernetes cluster and use it to deploy your very
-  first application. We'll walk through the basics of what Argo CD is, why it's
-  a game-changer for GitOps workflows, and guide you step-by-step through
+title: 'Argo CD Adventure: Install & Deploy Your First App on Kubernetes'
+subtitle: >-
+  Learn to install Argo CD on Kubernetes and deploy your first application with
+  GitOps magic.
+description: >-
+  Welcome to your Argo CD Adventure! In this quest, you'll learn how to install
+  Argo CD on a Kubernetes cluster and use it to deploy your very first
+  application. We'll walk through the basics of what Argo CD is, why it's a
+  game-changer for GitOps workflows, and guide you step-by-step through
   installation, configuration, and deploying a sample app. By the end, you'll
   have hands-on experience with one of the most popular continuous delivery
   tools for Kubernetes. Whether you're new to GitOps or just want to see Argo CD
@@ -20,8 +22,8 @@ skills:
   - Application deployment
   - YAML configuration
 steps:
-  - welcome
   - what-is-argo-cd
+  - welcome
   - gitops-concept
   - install-argo-cd
   - access-argo-cd-ui
