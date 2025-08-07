@@ -1,0 +1,46 @@
+id: summary
+learningObjectives:
+  - Summarize the quest and reinforce key takeaways.
+hints:
+  - Want to go deeper? [Argo CD Docs](https://argo-cd.readthedocs.io/en/stable/)
+  - Try deploying your own app next!
+startFlow:
+  do:
+    - actionId: bot_message
+      params:
+        person: lucca
+        messages:
+          - text: "You made it! Let's recap your journey:"
+          - text: "- You learned what Argo CD is and why GitOps rocks."
+          - text: "- You installed Argo CD on Kubernetes and accessed the web UI."
+          - text: "- You connected a Git repo, created an application, and deployed it with
+              a click."
+          - text: "- You reflected on the magic of syncing and the benefits of GitOps."
+          - text: With these skills, you're ready to automate deployments and keep your
+              clusters in sync with your code.
+          - text: Congratulations, you've completed the Argo CD Adventure! You've learned
+              what Argo CD is, how to install it on Kubernetes, connect it to a
+              Git repo, and deploy your first app using GitOps principles. Now
+              you can impress your coworkers with automated, reliable
+              deployments--and maybe even teach them a thing or two. Remember,
+              with great YAML comes great responsibility. Until next time, keep
+              deploying like a pro!
+    - actionId: ready_message
+      params:
+        person: lucca
+trigger:
+  type: user_ready_response
+  flowNode:
+    do:
+      - actionId: bot_message
+        params:
+          person: lucca
+          messages:
+            - text: Congratulations, you've completed the Argo CD Adventure! You've learned
+                what Argo CD is, how to install it on Kubernetes, connect it to
+                a Git repo, and deploy your first app using GitOps principles.
+                Now you can impress your coworkers with automated, reliable
+                deployments--and maybe even teach them a thing or two. Remember,
+                with great YAML comes great responsibility. Until next time,
+                keep deploying like a pro!
+      - actionId: finish_step
