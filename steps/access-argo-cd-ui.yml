@@ -1,0 +1,31 @@
+id: access-argo-cd-ui
+learningObjectives:
+  - Show how to access the Argo CD web UI and retrieve the admin password.
+hints:
+  - If you get a certificate warning, it's safe to proceed (it's self-signed).
+  - Lost? [Accessing the
+    UI](https://argo-cd.readthedocs.io/en/stable/getting_started/#4-access-the-argo-cd-api-server)
+startFlow:
+  do:
+    - actionId: bot_message
+      params:
+        person: lucca
+        messages:
+          - text: Argo CD comes with a shiny web UI. Let's access it!
+          - text: "First, expose the Argo CD API server locally:"
+          - text: "```kubectl port-forward svc/argocd-server -n argocd 8080:443```"
+          - text: Now, open your browser and go to
+              [https://localhost:8080](https://localhost:8080).
+          - text: "The default username is 'admin'. To get the password, run:"
+          - text: '```kubectl -n argocd get secret argocd-initial-admin-secret -o
+              jsonpath="{.data.password}" | base64 -d; echo```'
+          - text: Log in and bask in the glory of the Argo CD dashboard.
+          - text: Continue when you've logged in.
+    - actionId: ready_message
+      params:
+        person: lucca
+trigger:
+  type: user_ready_response
+  flowNode:
+    do:
+      - actionId: finish_step
