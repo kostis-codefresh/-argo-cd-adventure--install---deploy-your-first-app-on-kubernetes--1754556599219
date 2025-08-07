@@ -1,0 +1,28 @@
+id: gitops-concept
+learningObjectives:
+  - Describe the GitOps workflow and how Argo CD enables it.
+hints:
+  - "Quick intro: [What is GitOps?](https://www.gitops.tech/)"
+  - If you can commit to Git, you can do GitOps.
+startFlow:
+  do:
+    - actionId: bot_message
+      params:
+        person: lucca
+        messages:
+          - text: GitOps is a fancy way of saying 'manage your infrastructure and apps using
+              Git as the source of truth.'
+          - text: With GitOps, you make changes by updating YAML files in Git. Argo CD then
+              applies those changes to your cluster automatically.
+          - text: This approach gives you version control, easy rollbacks, and a clear audit
+              trail. Plus, you get to say 'GitOps' in meetings and sound cool.
+          - text: Ready to install Argo CD and see GitOps in action? Continue when you're
+              set.
+    - actionId: ready_message
+      params:
+        person: lucca
+trigger:
+  type: user_ready_response
+  flowNode:
+    do:
+      - actionId: finish_step
