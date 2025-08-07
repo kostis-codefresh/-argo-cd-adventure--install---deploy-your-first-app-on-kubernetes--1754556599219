@@ -1,0 +1,68 @@
+id: quiz-app-created
+learningObjectives:
+  - Check understanding of application creation in Argo CD.
+hints:
+  - It's the folder inside your Git repository.
+  - Look for the field that points to a directory, not a URL.
+startFlow:
+  do:
+    - actionId: bot_message
+      params:
+        person: lucca
+        messages:
+          - text: Which field in the Argo CD 'New App' form specifies where your app's
+              manifests are located in the repo?
+    - actionId: quiz_message
+      name: quiz
+      params:
+        person: lucca
+        options:
+          - Path
+          - Revision
+          - Namespace
+          - Project
+trigger:
+  type: chat_form_submitted
+  flowNode:
+    switch:
+      key: ${formSubmission}
+      cases:
+        A:
+          do:
+            - actionId: bot_message
+              params:
+                person: lucca
+                messages:
+                  - text: Correct! The 'Path' field tells Argo CD where to find your app's manifests
+                      in the repo.
+            - actionId: finish_step
+        B:
+          do:
+            - actionId: bot_message
+              params:
+                person: lucca
+                messages:
+                  - text: Not quite. 'Revision' is for branch or tag, not folder location.
+            - actionId: replay_action
+              params:
+                actionName: quiz
+        C:
+          do:
+            - actionId: bot_message
+              params:
+                person: lucca
+                messages:
+                  - text: Nope, that's where the app will be deployed, not where the manifests are.
+            - actionId: replay_action
+              params:
+                actionName: quiz
+        D:
+          do:
+            - actionId: bot_message
+              params:
+                person: lucca
+                messages:
+                  - text: That's for grouping apps, not specifying manifest location.
+            - actionId: replay_action
+              params:
+                actionName: quiz
