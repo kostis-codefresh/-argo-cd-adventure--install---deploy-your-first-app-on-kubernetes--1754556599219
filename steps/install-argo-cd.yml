@@ -1,0 +1,32 @@
+id: install-argo-cd
+learningObjectives:
+  - Guide the user through installing Argo CD on Kubernetes.
+hints:
+  - "Full install guide: [Argo CD Getting
+    Started](https://argo-cd.readthedocs.io/en/stable/getting_started/)"
+  - If pods aren't running, check your cluster resources and try again.
+startFlow:
+  do:
+    - actionId: bot_message
+      params:
+        person: lucca
+        messages:
+          - text: Time to get our hands dirty! Let's install Argo CD on your Kubernetes
+              cluster.
+          - text: "The easiest way is to apply the official Argo CD manifests:"
+          - text: "```kubectl create namespace argocd```"
+          - text: "```kubectl apply -n argocd -f
+              https://raw.githubusercontent.com/argoproj/argo-cd/stable/manifes\
+              ts/install.yaml```"
+          - text: This creates all the necessary resources in the 'argocd' namespace.
+          - text: "Give it a minute or two for the pods to spin up. You can check with:"
+          - text: "```kubectl get pods -n argocd```"
+          - text: Continue when Argo CD is up and running.
+    - actionId: ready_message
+      params:
+        person: lucca
+trigger:
+  type: user_ready_response
+  flowNode:
+    do:
+      - actionId: finish_step
