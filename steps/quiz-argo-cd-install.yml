@@ -1,0 +1,68 @@
+id: quiz-argo-cd-install
+learningObjectives:
+  - Check understanding of Argo CD installation and access steps.
+hints:
+  - Remember, namespaces help organize resources in Kubernetes.
+  - Look back at the install step if you're unsure.
+startFlow:
+  do:
+    - actionId: bot_message
+      params:
+        person: lucca
+        messages:
+          - text: "Quick check: Which command creates the Argo CD namespace before
+              installation?"
+    - actionId: quiz_message
+      name: quiz
+      params:
+        person: lucca
+        options:
+          - kubectl create namespace argocd
+          - kubectl apply -f argocd.yaml
+          - kubectl get pods -n argocd
+          - kubectl expose deployment argocd-server
+trigger:
+  type: chat_form_submitted
+  flowNode:
+    switch:
+      key: ${formSubmission}
+      cases:
+        A:
+          do:
+            - actionId: bot_message
+              params:
+                person: lucca
+                messages:
+                  - text: Correct! This command creates the 'argocd' namespace for Argo CD
+                      resources.
+            - actionId: finish_step
+        B:
+          do:
+            - actionId: bot_message
+              params:
+                person: lucca
+                messages:
+                  - text: Not quite. This applies a manifest, but doesn't create a namespace.
+            - actionId: replay_action
+              params:
+                actionName: quiz
+        C:
+          do:
+            - actionId: bot_message
+              params:
+                person: lucca
+                messages:
+                  - text: Nope, that's for checking pods, not creating namespaces.
+            - actionId: replay_action
+              params:
+                actionName: quiz
+        D:
+          do:
+            - actionId: bot_message
+              params:
+                person: lucca
+                messages:
+                  - text: That's for exposing a deployment, not creating a namespace.
+            - actionId: replay_action
+              params:
+                actionName: quiz
