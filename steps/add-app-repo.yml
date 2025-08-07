@@ -1,0 +1,29 @@
+id: add-app-repo
+learningObjectives:
+  - Guide the user to add a Git repository to Argo CD.
+hints:
+  - Need a sample repo?
+    [argocd-example-apps](https://github.com/argoproj/argocd-example-apps)
+  - Make sure your repo contains valid Kubernetes YAML files.
+startFlow:
+  do:
+    - actionId: bot_message
+      params:
+        person: lucca
+        messages:
+          - text: Now let's connect Argo CD to a Git repository containing your app's
+              Kubernetes manifests.
+          - text: "You can use your own repo, or try the official Argo CD example:"
+          - text: "```https://github.com/argoproj/argocd-example-apps.git```"
+          - text: In the Argo CD UI, go to 'Settings' > 'Repositories' and add the repo URL.
+          - text: Argo CD will use this repo as the source for your application's desired
+              state.
+          - text: Continue when you've added the repository.
+    - actionId: ready_message
+      params:
+        person: lucca
+trigger:
+  type: user_ready_response
+  flowNode:
+    do:
+      - actionId: finish_step
