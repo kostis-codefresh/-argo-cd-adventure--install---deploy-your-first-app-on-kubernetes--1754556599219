@@ -2,8 +2,7 @@ id: welcome
 learningObjectives:
   - Introduce Argo CD and motivate the quest.
 hints:
-  - If you're new to Kubernetes, check out [Kubernetes
-    Basics](https://kubernetes.io/docs/tutorials/kubernetes-basics/).
+  - If you're new to Kubernetes, check out [Kubernetes Basics](https://kubernetes.io/docs/tutorials/kubernetes-basics/).
   - No cape required, just curiosity!
 startFlow:
   do:
@@ -11,15 +10,10 @@ startFlow:
       params:
         person: lucca
         messages:
-          - text: Welcome to the Argo CD Adventure! I'm Lucca, your guide through the
-              magical world of GitOps on Kubernetes.
-          - text: In this quest, you'll learn how to install Argo CD on a Kubernetes cluster
-              and use it to deploy your very first application.
-          - text: Why bother? Because Argo CD makes deploying and managing apps on
-              Kubernetes as easy as ordering pizza online--minus the delivery
-              fee.
-          - text: By the end, you'll have a working Argo CD setup and a deployed app, plus
-              the confidence to automate your deployments like a pro.
+          - text: Welcome to the Argo CD Adventure! I'm Lucca, your guide through the magical world of GitOps on Kubernetes.
+          - text: In this quest, you'll learn how to install Argo CD on a Kubernetes cluster and use it to deploy your very first application.
+          - text: Why bother? Because Argo CD makes deploying and managing apps on Kubernetes as easy as ordering pizza online--minus the delivery fee.
+          - text: By the end, you'll have a working Argo CD setup and a deployed app, plus the confidence to automate your deployments like a pro.
           - text: Ready to become a GitOps wizard? Continue when you're ready!
     - actionId: ready_message
       params:
