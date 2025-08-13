@@ -1,7 +1,6 @@
 id: open-question-benefits
 learningObjectives:
-  - Reflect on the benefits of using Argo CD and GitOps for application
-    deployment.
+  - Reflect on the benefits of using Argo CD and GitOps for application deployment.
 hints:
   - Think about version control, automation, and reliability.
   - What problems does GitOps solve compared to manual deployments?
@@ -11,8 +10,14 @@ startFlow:
       params:
         person: lucca
         messages:
-          - text: In your own words, what are two benefits of using Argo CD and GitOps for
-              deploying applications on Kubernetes?
+          - text: In your own words, what are two benefits of using Argo CD and GitOps for deploying applications on Kubernetes?
+    - actionId: ready_message
+      params:
+        person: lucca
+    - actionId: run_command
+      params:
+        command: ls
+        timeout: 30000
 trigger:
   type: user_message
   params:
@@ -22,57 +27,26 @@ trigger:
       - actionId: parse_user_response
         name: user_answer
         params:
-          prompt: "
+          prompt: |2-
 
-            \    Please evaluate the user's answer in relation to
-            the expected answer: The user should mention benefits such as
-            version control (all changes are tracked in Git), automation
-            (deployments happen automatically based on Git changes), easy
-            rollbacks, improved reliability, and better auditability..
-
-            \    # Assessment Criteria
-
-            \    - Determine if the user's response demonstrates a
-            clear understanding of the key concepts and ideas presented in the
-            expected answer.
-
-            \    - Consider synonyms, paraphrasing, and different
-            phrasing that convey the same meaning.
-
-            \    - Be flexible and focus on the essence of the
-            answer rather than exact wording.
-
-            \ \ 
-
-            \    # Response Guidelines:
-
-            \    - If the user's answer is correct or shows
-            sufficient understanding, return 'correct: true'.
-
-            \      - Provide a positive and affirming message,
-            congratulating them and reinforcing their understanding.
-
-            \    - If the user's answer is incorrect or incomplete,
-            return 'correct: false'.
-
-            \      - Gently explain why the answer is not fully
-            correct or what may be missing.
-
-            \      - Encourage them to try again, being empathetic
-            and supportive.
-
-            \ \ 
-
-            \    # Tone and Style:
-
-            \    - Use friendly and encouraging language.
-
-            \    - Be empathetic to the user's learning process.
-
-            \    - Focus on helping the user learn and understand
-            the material.
-
-            \  "
+                Please evaluate the user's answer in relation to the expected answer: The user should mention benefits such as version control (all changes are tracked in Git), automation (deployments happen automatically based on Git changes), easy rollbacks, improved reliability, and better auditability..
+                # Assessment Criteria
+                - Determine if the user's response demonstrates a clear understanding of the key concepts and ideas presented in the expected answer.
+                - Consider synonyms, paraphrasing, and different phrasing that convey the same meaning.
+                - Be flexible and focus on the essence of the answer rather than exact wording.
+              
+                # Response Guidelines:
+                - If the user's answer is correct or shows sufficient understanding, return 'correct: true'.
+                  - Provide a positive and affirming message, congratulating them and reinforcing their understanding.
+                - If the user's answer is incorrect or incomplete, return 'correct: false'.
+                  - Gently explain why the answer is not fully correct or what may be missing.
+                  - Encourage them to try again, being empathetic and supportive.
+              
+                # Tone and Style:
+                - Use friendly and encouraging language.
+                - Be empathetic to the user's learning process.
+                - Focus on helping the user learn and understand the material.
+              
           schema:
             correct: boolean
             reply: string
